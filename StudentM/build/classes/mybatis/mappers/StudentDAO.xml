@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mcnc.springmybatis.dao.StudentDAO">
+	<resultMap id="Student" type="StudentDTO">
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="gender" column="gender" />
+		<result property="classes" column="class" />
+	</resultMap>
+	<select id="getStudentById" parameterType="StudentDTO"
+		resultMap="Student">
+		SELECT * FROM tbl_students
+		<where>
+			id = #{id}
+		</where>
+	</select>
+	
+	<select id="listStudents" parameterType="StudentDTO"
+		resultMap="Student">
+		SELECT * FROM tbl_students
+		
+	</select>
+	<!-- 
+	<insert id="insertStudent" parameterType="StudentDTO" keyProperty='studId'>
+		Insert into tbl_students(name,gender,classes) 
+		values(#{name},#{gender},#{classes});
+	</insert>
+	 
+	<update id="updateStudent" parameterType="StudentDTO ">
+		UPDATE tbl_students set
+		name=#{name},
+		gender=#{gender}
+		classes=#{classes}
+		where id=#{id}
+	</update>
+	<delete id="deleteStudentById" parameterType="int">
+		DELETE FROM tbl_students WHERE ID=#{id}
+	</delete> -->
+</mapper>

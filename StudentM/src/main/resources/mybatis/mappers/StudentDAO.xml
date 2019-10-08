@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mcnc.students.dao.StudentDAO">
+	<resultMap id="Student" type="StudentDTO">
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="s1" column="s1" />
+		<result property="s2" column="s2" />
+	</resultMap>
+	<select id="listStudents" parameterType="StudentDTO"
+		resultMap="Student">
+		SELECT * FROM tblstudents order by id desc
+	</select>
+	
+	<!-- <select id="getStudentById" parameterType="StudentDTO"
+		resultMap="Students">
+		SELECT * FROM tblstudents
+		<where>
+			id =#{id}
+		</where>
+	</select>
+	
+	<insert id="insertStudent" parameterType="StudentDTO">
+		INSERT INTO tblstudents(name,s1,s2)
+		values(#{name},#{s1},#{s2});		
+	</insert>
+	
+	<delete id="deleteStudentById" parameterType="StudentDTO">
+		DELETE FROM tblstudents
+		<where>
+			id =#{id}
+		</where>
+	</delete>
+  
+	<update id="updateStudent" parameterType="StudentDTO ">
+		UPDATE tblstudents set
+		name=#{name},
+		s1=#{s1}
+		s2=#{s2}
+		where id=#{id}
+	</update> -->
+	
+</mapper>
